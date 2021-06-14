@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="es">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize-Añadir Tareas</title>
+    <link rel="icon" href="../img/logo2.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/styles.css" media="screen,projection" />
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+
+
+		   .background1 {
+			   background-image: url("../img/fondo.jpg");
+		   }
+
+           body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main{
+            flex: 1 0 auto;
+        }
+
+        footer{
+            margin-top: auto;
+        }
+
+     
+    </style>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function(){
+            $('#header').load("templates/header.html");
+            $('#footer').load("templates/footer.html");
+            M.AutoInit();
+        });
+    </script>
+
+    <div id="header"></div>
+
+    
+        <main class="background1">  
+            <div class= "container">
+                <div class="row center">
+                  <br>
+                <h2 tabindex="0" class="center"><i>Añadir Tareas</i></h2>
+                    <div class="row">
+                        <p tabindex="0">En esta pestaña podrás añadir tareas a tu horario/calendario.
+                        </p>
+                    </div>
+                </div>
+              </div>
+              <div class="container">
+              <div class="card-panel white">
+            <div class="section no-pad-bot schedule-background">
+                <div class="container no-pad-bot center center-align">
+                    <div class="row">
+                        <form class="col s12" id="addTaskForm" action=""> 
+                                <div class="input-field col s12">
+                                    <input name="Actividad" placeholder="Actividad" id="Task_Title" type="text" class="validate" required>
+                                    <label for="Actividad">Actividad</label>
+                                </div>
+                            <div class="input-field col s12">
+                                <select name="Task_Day" id="Task_Day" required>
+                                    <option value="" disabled selected>Elige un día de la semana</option>
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miércoles">Miércoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+                                    <option value="Sábado">Sábado</option>
+                                    <option value="Domingo">Domingo</option>
+                                </select>
+                                <label for="Task_Day">Día de la semana</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <select name="Task_Hour" id="Task_Hour" required>
+                                    <option value="" disabled selected>Elige una hora del día</option>
+                                    <option value="8:00-9:00">8:00-9:00</option>
+                                    <option value="9:00-10:00">9:00-10:00</option>
+                                    <option value="10:00-11:00">10:00-11:00</option>
+                                    <option value="11:00-12:00">11:00-12:00</option>
+                                    <option value="12:00-13:00">12:00-13:00</option>
+                                    <option value="13:00-14:00">13:00-14:00</option>
+                                    <option value="14:00-15:00">14:00-15:00</option>
+                                    <option value="16:00-17:00">16:00-17:00</option>
+                                    <option value="18:00-19:00">18:00-19:00</option>
+                                    <option value="19:00-20:00">19:00-20:00</option>
+                                </select>
+                                <label for="Task_Hour">Hora</label>
+                            </div>
+                         
+                            <button class="btn waves-effect purple darken-4" role="button" type="submit" tabindex="0" id="add_task"><i class="material-icons right" aria-label="Enviar">send</i>Añadir Tarea</button>
+                            <br><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <br><br><br>
+        </main>
+    
+
+        <footer class="page-footer">
+			<div class="footer-copyright">
+			    <div class="container">
+				Grupo 1 Usabilidad y Accesibilidad
+			    <a class="grey-text text-lighten-4 right" href="/pages/sobrenosotros.html" area-labelledby="Conoce más sobre nosotros">Sobre Nosotros</a>
+			    <br>
+			    <a class="grey-text text-lighten-4 right" href="/pages/contact.html" area-labelledby="Accede a nuestra página de contacto">Contacto</a>
+			    </div>
+			</div>
+		    </footer>
+
+    <script>
+
+      $('#addTaskForm').submit( function() {
+      
+        let Task_Title = $('#Task_Title').val()
+        let Task_Day = $('#Task_Day').val()
+        let Task_Hour = $('#Task_Hour').val()
+      
+        var task = [Task_Title,Task_Day,Task_Hour]      //Tarea con los valores del formulario
+      
+        tasks_string = localStorage.getItem('tasks')    //Array de tareas almacenadas en el localStorage
+        
+        if( tasks_string == null ){                               //En caso de que no haya tareas
+          localStorage.setItem('tasks', JSON.stringify([task]))  
+        }else{                                                    //Concatenamos la nueva tarea al array de tareas y guardamos el nuevo array en el localStorage
+          let tasks = JSON.parse(tasks_string)
+          tasks = tasks.concat([task])
+          localStorage.setItem('tasks', JSON.stringify(tasks))
+        }
+      
+        window.alert('tarea añadida')
+      });
+      
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="es">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize-Login</title>
+    <link rel="icon" href="../img/logo2.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/styles.css" media="screen,projection" />
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<style>
+		body{
+			color:black;
+		}
+		   .blue-background {
+			   background-image: url("../img/fondo.jpg");
+		   }
+   
+	   input:focus{
+		   border-bottom: 1px solid black !important;
+		   box-shadow: 0 1px 0 0 black !important;
+	   }
+   
+	   label.active{
+		   color: black !important;
+	   }
+	   body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main{
+            flex: 1 0 auto;
+        }
+
+        footer{
+            margin-top: auto;
+        }
+
+
+	
+   </style>
+</head>
+
+<body>
+
+	<script>
+        $(document).ready(function(){
+            $('#header').load("templates/header.html");
+            $('#footer').load("templates/footer.html");
+            M.AutoInit();
+
+			if( localStorage.getItem('user') != null ){		//Se comprueba si el usuario está logeado y se le redirige
+				$(location).attr('href', './horario.html')
+			}
+        });
+    </script>
+
+    <div id="header"></div>
+
+	
+		<main class="blue-background">
+			<br><br><br><br>
+			
+			<div class="container">
+				<div class="center">
+					
+					<div class="row">
+						<h3 tabindex="0">Iniciar sesión</h3>
+					</div>
+						
+				
+					<div class="card-panel white">
+						<form id="loginForm">
+	
+							<div class="row">
+								<div class="col s12 m4"></div>
+								<div class="input-field col s12 m6">
+								<i class="material-icons prefix" aria-label="Icono de usuario">portrait</i>
+								<input id="usuario" placeholder="Usuario" type="text" class="validate" required>
+								<label class="active" for="Usuario">Usuario</label>
+								</div>
+							</div>
+					
+					
+							<div class="row">
+								<div class="col s12 m4"></div>
+								<div class="input-field col s12 m6">
+								<i class="material-icons prefix" aria-label="Icono de contraseña">lock_outline</i>
+								<input  id="password" placeholder="Contraseña" type="password" class="validate" required>
+								<label class="active" for="Contraseña">Contraseña</label>
+								</div>
+							</div>
+							<br>
+	
+							<div class="row">
+								<button class="btn-large waves-effect purple darken-4 " id="login" type="submit" name="action">Inicia sesión
+								<i class="material-icons right" aria-label="Icono de enviar">send</i>
+								</button>
+							</div>
+							<div class="row">
+								<p tabindex="0">¿No tienes una cuenta? <a href="signup.html" aria-labelledby=>Registrate</a></p>
+							</div>
+	
+						</form>
+					  </div>
+				</div>
+			</div>
+		</main>
+	
+
+	
+		<footer class="page-footer">
+			<div class="footer-copyright">
+			    <div class="container">
+				Grupo 1 Usabilidad y Accesibilidad
+			    <a class="grey-text text-lighten-4 right" href="/pages/sobrenosotros.html" area-labelledby="Conoce más sobre nosotros">Sobre Nosotros</a>
+			    <br>
+			    <a class="grey-text text-lighten-4 right" href="/pages/contact.html" area-labelledby="Accede a nuestra página de contacto">Contacto</a>
+			    </div>
+			</div>
+		    </footer>
+
+    <script>
+        $('#loginForm').submit( function() {
+			if( localStorage.getItem('users') != null ){
+				let usuario = $('#usuario').val()
+				let password = $('#password').val()
+
+				let users = JSON.parse(localStorage.getItem('users'))
+				let loged = 0
+
+				for(i in users){
+					console.log( users[i][0] )
+					if( users[i][0] == usuario  && users[i][1] == password ){
+						loged = 1
+						break
+					}
+				}
+
+				if(loged){
+					localStorage.setItem('user', usuario )
+					window.alert('Usuario logeado con exito')
+					
+				}else{
+					window.alert('Error: No existe ningún usuario con esas credenciales')
+				}
+			}else{
+				window.alert('Error: No existe ningún usuario con esas credenciales')
+			}
+		})
+    </script>
+
+</body>
+
+</html>

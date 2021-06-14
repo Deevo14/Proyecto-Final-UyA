@@ -1,0 +1,22 @@
+nav.nav-center{
+    background-color: #4a148c;
+}
+
+.page-footer{
+    background-color: #4a148c;
+}
+
+nav.nav-center ul {
+    text-align: center;
+}
+nav.nav-center ul li {
+    display: inline;
+    float: none;
+}
+nav.nav-center ul li a {
+    display: inline-block;
+}
+
+.blue-background{
+background-image: url(img/fondo.jpg);
+}

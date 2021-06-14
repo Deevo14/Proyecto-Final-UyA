@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta lang="es">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Organize-Sobre Nosotros</title>
+        <link rel="icon" href="../img/logo2.png">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+        <link type="text/css" rel="stylesheet" href="../css/styles.css" media="screen,projection" />
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <style>
+            .background1 {
+			   background-image: url("../img/fondo.jpg");
+		   }
+
+
+           body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main{
+            flex: 1 0 auto;
+        }
+
+        footer{
+            margin-top: auto;
+        }
+           
+            .full-height{
+                min-height: 100vh;
+            }
+        </style>
+    </head>
+
+
+<body>
+
+    <script>
+        $(document).ready(function(){
+            $('#header').load("templates/header.html");
+            $('#footer').load("templates/footer.html");
+            M.AutoInit();
+        
+        });
+    </script>
+
+    <div id="header"></div>
+    <main class="background1"> 
+            
+            <div class="section">
+                <h2 tabindex="0" class="center"><i>¿Quiénes somos?</i></h2>  
+                <br>
+                <div class="container">
+                    <div class="indigo lighten-5">
+                        <div class="card">
+                            <div class="card-stacked">
+                              <div class="card-content">
+                                <span tabindex="0" class="card-title activator grey-text text-darken-4 center">Airam Herrera Plasencia</span>
+                              </div>
+                              <div class="card-action black-text center">
+                                <a href="https://campusingenieriaytecnologia.ull.es/user/profile.php?id=8012" target="_blank">Perfil Ull</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>        
+                </div>
+                <div class="container">
+                    <div class="indigo lighten-5">
+                        <div class="card">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <span tabindex="0" class="card-title activator grey-text text-darken-4 center">Enrique Hernández Cabrera</span>
+                                </div>
+                                <div class="card-action black-text center">
+                                    <a href="https://campusingenieriaytecnologia.ull.es/user/profile.php?id=2486" target="_blank">Perfil Ull</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>        
+                </div>    
+                <div class="container">
+                    <div class="indigo lighten-5">
+                        <div class="card">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <span tabindex="0" class="card-title activator grey-text text-darken-4 center">José David Mur Álvarez</span>
+                                </div>
+                                <div class="card-action black-text center">
+                                    <a href="https://campusingenieriaytecnologia.ull.es/user/profile.php?id=6112" target="_blank">Perfil Ull</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>        
+                </div>
+            </div>
+        </main>
+        
+        <footer class="page-footer">
+			<div class="footer-copyright">
+			    <div class="container">
+				Grupo 1 Usabilidad y Accesibilidad
+			    <a class="grey-text text-lighten-4 right" href="/pages/sobrenosotros.html" area-labelledby="Conoce más sobre nosotros">Sobre Nosotros</a>
+			    <br>
+			    <a class="grey-text text-lighten-4 right" href="/pages/contact.html" area-labelledby="Accede a nuestra página de contacto">Contacto</a>
+			    </div>
+			</div>
+		    </footer>
+
+</body>
+</html>

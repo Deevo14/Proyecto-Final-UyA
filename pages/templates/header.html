@@ -1,0 +1,33 @@
+<header>
+    <div class="navbar-fixed">
+    <nav class="nav-center" >
+        <div class="nav-wrapper" >
+            <a href="/index.html" class="left hide-on-med-and-down navbar"><img style="height:64px;" id="logo_nav" src="../img/logo.png" alt="Organize" title="Organize" aria-label="Ir a página de inicio" ></a>
+            <ul class=" hide-on-med-and-down">  
+                <li><a href="/pages/horario.html" aria-labelledby="Ir a horario">Horario</a></li>
+                <li><a href="/pages/tareas.html" aria-labelledby="Ir a añadir tareas">Añadir tareas</a></li>
+            <ul id="loged" class=" right hide-on-med-and-down ">
+                <li><a href="/pages/login.html" aria-labelledby="Ir a iniciar sesión">Iniciar Sesión</a></li>
+                <li><a href="/pages/signup.html" aria-labelledby="Ir a Registrarse">Registrarse</a></li>
+            </ul>
+        </div>
+    </nav>
+    </div>
+</header>
+<script>
+    $(document).ready(function(){
+        var user = localStorage.getItem('user')
+        if( user != null ){		//Se comprueba si el usuario está logeado
+            let li = $('<li><a href="">'+ user +'</a></li>')
+            $('#loged').html(li)
+
+            li = $('<li id="logout"><a href="">Logout</a></li>')
+            $('#loged').append(li)
+
+            $('#logout').click( function() {   //Vaciar todas las tareas
+                localStorage.removeItem('user');
+                location.reload();
+            });
+        }
+    });
+</script>

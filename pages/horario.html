@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta lang="es">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize-Horario</title>
+    <link rel="icon" href="../img/logo2.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/styles.css" media="screen,projection" />
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+           body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main{
+            flex: 1 0 auto;
+        }
+
+        footer{
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function(){
+            $('#header').load("templates/header.html");
+            $('#footer').load("templates/footer.html");
+            M.AutoInit();
+        
+        });
+    </script>
+
+    <div id="header"></div>
+
+    <main class="deep-purple lighten-3"> 
+        <div class="full-height deep-purple lighten-3" >
+            <div class="container no-pad-bot">
+                <br>
+                <h1 class="header center black-text"> MI HORARIO </h1>
+                <div class="row center ">
+                    <p class="black-text"> En este apartado, encontramos nuestro horario, esencial para planificar nuestro tiempo </p>
+                    <a class="btn waves-effect purple darken-4" id="delete" aria-label="Borrar">Borrar</a>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Actividad</th>
+                                    <th>Día</th>
+                                    <th>Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_tasks"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+            Grupo 1 Usabilidad y Accesibilidad
+            <a class="grey-text text-lighten-4 right" href="/pages/sobrenosotros.html" area-labelledby="Conoce más sobre nosotros">Sobre Nosotros</a>
+            <br>
+            <a class="grey-text text-lighten-4 right" href="/pages/contact.html" area-labelledby="Accede a nuestra página de contacto">Contacto</a>
+            </div>
+        </div>
+        </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            M.AutoInit();
+            
+            if( localStorage.getItem('tasks') != null ){                                //Se crea el tbody con las tareas del localstorage
+                var tasks = JSON.parse(localStorage.getItem('tasks'))
+                
+                for( i in tasks ){
+                    let tr = $('<tr>')
+            
+                    for(j in tasks[i]){
+                        let td = $('<td>')
+                        td.append( tasks[i][j] )
+                        tr.append(td)
+                    }
+                    $('#tbody_tasks').append(tr)
+                }
+            }
+            
+
+            $('#delete').click( function() {   //Vaciar todas las tareas
+                localStorage.removeItem('tasks');
+                location.reload();
+            });
+        });
+    </script>
+
+</body>
+</html>

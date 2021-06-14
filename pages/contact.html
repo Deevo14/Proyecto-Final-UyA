@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta lang="es">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Organize-Contacto</title>
+        <link rel="icon" href="../img/logo2.png">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+        <link type="text/css" rel="stylesheet" href="../css/styles.css" media="screen,projection" />
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <style>
+          .background1 {
+			   background-image: url("../img/fondo.jpg");
+		   }
+            .full-height{
+                min-height: 100vh;
+            }
+
+            body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main{
+            flex: 1 0 auto;
+        }
+
+        footer{
+            margin-top: auto;
+        }
+        </style>
+    </head>
+
+
+<body>
+
+    <script>
+        $(document).ready(function(){
+            $('#header').load("templates/header.html");
+            $('#footer').load("templates/footer.html");
+            M.AutoInit();
+        
+        });
+    </script>
+
+    <div id="header"></div>
+    <main class="background1"> 
+            <div class= "container">
+                <div class="row center">
+                  <br>
+                <h2 tabindex="0" class="center"><i>Contacto</i></h2>
+                    <div class="row">
+                        <p tabindex="0">Envianos cualquier duda, opinión o idea que tengas acerca de la página para ayudarnos a mejorarla.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+            <div class="card-panel white">
+            <div class="section no-pad-bot schedule-background">
+            <div class="container no-pad-bot center center-align">
+            <div class="row">
+                <form class="col s12" id="contact_form" action="">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="Nombre" type="text" class="validate" id="c_name" required>
+                      <label for="Nombre">Nombre</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="Apellidos" type="text" class="validate" id="c_lname" required>
+                      <label for="Apellidos">Apellidos</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="Correo Electrónico" type="text" class="validate" id="c_mail" required>
+                      <label for="Correo Electrónico">Correo Electrónico</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="Mensaje" type="text" class="validate" id="c_mess" required>
+                      <label for="Mensaje">Mensaje</label>
+                    </div>
+                  </div>
+                  <button class="btn waves-effect purple darken-4" role="button" type="submit" tabindex="0" id="c_sendmess"><i class="material-icons right" aria-label="Enviar">send</i>Enviar Mensaje</button>
+                </form>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        </main>
+        <footer class="page-footer">
+          <div class="footer-copyright">
+              <div class="container">
+            Grupo 1 Usabilidad y Accesibilidad
+              <a class="grey-text text-lighten-4 right" href="/pages/sobrenosotros.html" area-labelledby="Conoce más sobre nosotros">Sobre Nosotros</a>
+              <br>
+              <a class="grey-text text-lighten-4 right" href="/pages/contact.html" area-labelledby="Accede a nuestra página de contacto">Contacto</a>
+              </div>
+          </div>
+            </footer>
+
+    <script>
+
+        $('#contact_form').submit( function() {
+        
+          window.alert('Mensaje Enviado')
+        });
+        
+      </script>
+
+</body>
+</html>
